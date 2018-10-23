@@ -96,17 +96,17 @@ public class Mix {
 			int flag4 = 0;
 			while (flag4==0) {
 			System.out.println("Enter a binary value and I will return you the decimal");
-				if (sc.hasNextInt()) {
+				if (sc.hasNextInt()) { //we control that we insert a number
 					String bi = sc.next();
-					char[] binary = bi.toCharArray();
+					char[] binary = bi.toCharArray(); //we save the number in an array
 					int counter4=0;
-					for (int i=0;i<bi.length();i++) {
+					for (int i=0;i<bi.length();i++) { //we control that all the digits are 0 or 1
 						if (binary[i]!='1' && binary[i]!='0') {
 							counter4=1;
 						}
 					}
 					if (counter4==0) {
-						int decimal = Integer.parseInt(bi,2);
+						int decimal = Integer.parseInt(bi,2); //with this method we pass a binary number to a decimal
 						System.out.println("Your binary number was "+bi+" and the decimal is "+decimal);
 						flag4++;
 					}
@@ -116,7 +116,7 @@ public class Mix {
 				}
 				else {
 				System.out.println("You haven't entered a binary number, try it again");
-				String tokenjump = sc.next();
+				String tokenjump = sc.next(); 
 				}
 			}
 			break;
@@ -125,17 +125,15 @@ public class Mix {
 		    int flag5 = 0;
 		    while (flag5==0) {
 		    	System.out.println("Give me a sentence");
-		    	String jump = sc.nextLine();
-		    	String sentence= sc.nextLine(); 
+		    	String jump = sc.nextLine(); //we jump the line of the menu
+		    	String sentence= sc.nextLine();  //we save the line
 		    	System.out.println("Give me a letter");
 		    	String letter = sc.next();
-		    	if (letter.length()==1) {
-		    		String[] array = sentence.split(" ");
-		    		int size = array.length;
+		    	if (letter.length()==1) { //we control that we have entered a digit
+		    		String[] array = sentence.split(" "); //we separate the words of the sentence
 		    		int count=0;
-		    		for (int i=0;i<size;i++) {
-		    			char first = array[i].charAt(0);
-		    			if (first==letter.charAt(0)) {
+		    		for (int i=0;i<array.length;i++) { 
+		    			if (array[i].charAt(0)==letter.charAt(0)) {
 		    				count++;
 		    			}	
 		    		}
@@ -150,48 +148,43 @@ public class Mix {
 		    
 			
 		case 6:
-			System.out.println("Give me a sentence");
-			String jump = sc.nextLine();
-			String sentence = sc.nextLine(); 
-			System.out.println("Give me a letter");
-			String letter = sc.next();
-			if (letter.length()==1) {
 			
+			int flag6 = 0;
+			while (flag6==0) {
+				System.out.println("Give me a sentence");
+				String jump = sc.nextLine(); //we jump the line of the menu
+				String sentence = sc.nextLine(); //we save the line
+				System.out.println("Give me a letter");
+				String letter = sc.next();
+				if (letter.length()==1) { //we control that we have entered a digit
+					String[] hitz = sentence.split(" "); //we separate the words of the sentence
+					int kont=0;
 			
-			String[] hitz = sentence.split(" ");
-			int luzer = hitz.length;
-			int kont=0;
-			
-			for (int i=0;i<luzer;i++) {
-				
-				int lu = hitz[i].length();
-				
-				char last = hitz[i].charAt(lu-1);
-				if (last==letter.charAt(0)) {
-					kont++;
+					for (int i=0;i<hitz.length;i++) {
+						int lu = hitz[i].length(); //we save the length of the word to use the last letter
+						if (hitz[i].charAt(lu-1)==letter.charAt(0)) { //we compare the last letter from each word with our letter
+							kont++;
+						}
+					}
+					System.out.println(kont + " words of your sentence finish with "+ letter);
+					flag6++;
 				}
-				
-			}
-		    System.out.println(kont + " words of your sentence finish with "+ letter);
-		    
-			}
-			else {
+				else {
 				System.out.println("You haven't entered a letter");
+				}
 			}
 			break;
 		   
 		case 7:
 			System.out.println("Give me a word");
 			String hitza = sc.next();
-			char[] letrak = hitza.toCharArray();
-			int luze = hitza.length();
+			char[] letrak = hitza.toCharArray(); //we save the letters in a char array
 			String alderantziz="";
-			
-			for (int i=luze-1;i>-1;i--) {
-				alderantziz=alderantziz+letrak[i];
+			for (int i=hitza.length()-1;i>=0;i--) { //we read the letters in the inverted way
+				alderantziz=alderantziz+letrak[i]; //we save the inverted word
 			}
 			
-			if (hitza.equals(alderantziz)){
+			if (hitza.equals(alderantziz)){ //we use this method to compare two strings
 				System.out.println("The word is a palindrome");
 			}
 			else {
