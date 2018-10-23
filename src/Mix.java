@@ -122,40 +122,43 @@ public class Mix {
 			break;
 		    
 		case 5:
-		    
-			System.out.println("Give me a sentence");
-			String jump = sc.nextLine();
-			String sentence= sc.nextLine(); 
-			System.out.println("Give me a letter");
-			char letter = sc.next().charAt(0);
-			
-			String[] array = sentence.split(" ");
-			int size = array.length;
-			int count=0;
-			
-			for (int i=0;i<size;i++) {
-				
-				char first = array[i].charAt(0);
-				if (first==letter) {
-					count++;
-				}
-				
-			}
-			
-		    System.out.println(count + " words of your sentence start with "+ letter);
-		   // System.out.println(sc.nextLine()); 
-			System.out.println();
+		    int flag5 = 0;
+		    while (flag5==0) {
+		    	System.out.println("Give me a sentence");
+		    	String jump = sc.nextLine();
+		    	String sentence= sc.nextLine(); 
+		    	System.out.println("Give me a letter");
+		    	String letter = sc.next();
+		    	if (letter.length()==1) {
+		    		String[] array = sentence.split(" ");
+		    		int size = array.length;
+		    		int count=0;
+		    		for (int i=0;i<size;i++) {
+		    			char first = array[i].charAt(0);
+		    			if (first==letter.charAt(0)) {
+		    				count++;
+		    			}	
+		    		}
+		    		System.out.println(count + " words of your sentence start with "+ letter);
+		    		flag5++;
+		    	}
+		    	else {
+				System.out.println("You haven't entered a letter");
+		    	}
+		    }
 			break;
 		    
 			
 		case 6:
 			System.out.println("Give me a sentence");
-			String u = sc.next();
-			u += sc.nextLine(); 
-			System.out.println("Give me a char");
-			char l= sc.next().charAt(0);
+			String jump = sc.nextLine();
+			String sentence = sc.nextLine(); 
+			System.out.println("Give me a letter");
+			String letter = sc.next();
+			if (letter.length()==1) {
 			
-			String[] hitz = u.split(" ");
+			
+			String[] hitz = sentence.split(" ");
 			int luzer = hitz.length;
 			int kont=0;
 			
@@ -164,15 +167,17 @@ public class Mix {
 				int lu = hitz[i].length();
 				
 				char last = hitz[i].charAt(lu-1);
-				if (last==l) {
+				if (last==letter.charAt(0)) {
 					kont++;
 				}
 				
 			}
-			
-		    System.out.println(kont + " words of your sentence finish with "+ l);
-		   // System.out.println(sc.nextLine()); 
-			System.out.println();
+		    System.out.println(kont + " words of your sentence finish with "+ letter);
+		    
+			}
+			else {
+				System.out.println("You haven't entered a letter");
+			}
 			break;
 		   
 		case 7:
