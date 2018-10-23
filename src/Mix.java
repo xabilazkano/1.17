@@ -79,16 +79,15 @@ public class Mix {
 			break;
 		case 3:
 			System.out.println("Give me a number and I will give you its inverted one");
-			String case3 = sc.next(); //we receive a string for using length function
-		    int luz = case3.length(); //we save the length of the string
-		    char[] ariketa = case3.toCharArray(); //we create a char array with the number
+			String number3 = sc.next(); //we receive a string for using length function
+		    int luzera = number3.length(); //we save the length of the string
+		    char[] digits = number3.toCharArray(); //we create a char array with the number
 		    
-			System.out.println("Your number is " + case3); 
+			System.out.println("Your number is " + number3); 
 			System.out.print("The inverted number is ");
 		    
-		    for (int i=luz-1;i>-1;i--) { //it creates a loop starting from the last cell of the array and finishing in the first one
-		    	System.out.print(ariketa[i]); //it prints the chars in the same line
-		    	
+		    for (int i=luzera-1;i>=0;i--) { //it creates a loop starting from the last cell of the array and finishing in the first one
+		    	System.out.print(digits[i]); //it prints the chars in the same line	
 		    }
 		    System.out.println();
 		    break;
@@ -135,10 +134,10 @@ public class Mix {
 			char l= sc.next().charAt(0);
 			
 			String[] hitz = u.split(" ");
-			int luzera = hitz.length;
+			int luzer = hitz.length;
 			int kont=0;
 			
-			for (int i=0;i<luzera;i++) {
+			for (int i=0;i<luzer;i++) {
 				
 				int lu = hitz[i].length();
 				
