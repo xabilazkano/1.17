@@ -93,34 +93,56 @@ public class Mix {
 		    break;
 		
 		case 4:  
+			int flag4 = 0;
+			while (flag4==0) {
 			System.out.println("Enter a binary value and I will return you the decimal");
-			String bi = sc.next();
-			int decimal = Integer.parseInt(bi,2);
-			System.out.println("Your binary number was "+bi+" and the decimal is "+decimal);
+				if (sc.hasNextInt()) {
+					String bi = sc.next();
+					char[] binary = bi.toCharArray();
+					int counter4=0;
+					for (int i=0;i<bi.length();i++) {
+						if (binary[i]!='1' && binary[i]!='0') {
+							counter4=1;
+						}
+					}
+					if (counter4==0) {
+						int decimal = Integer.parseInt(bi,2);
+						System.out.println("Your binary number was "+bi+" and the decimal is "+decimal);
+						flag4++;
+					}
+					else {
+						System.out.println("You haven't entered a binary number");
+					}
+				}
+				else {
+				System.out.println("You haven't entered a binary number, try it again");
+				String tokenjump = sc.next();
+				}
+			}
 			break;
 		    
 		case 5:
 		    
 			System.out.println("Give me a sentence");
-			String q = sc.next();
-			q += sc.nextLine(); 
-			System.out.println("Give me a char");
-			char fi = sc.next().charAt(0);
+			String jump = sc.nextLine();
+			String sentence= sc.nextLine(); 
+			System.out.println("Give me a letter");
+			char letter = sc.next().charAt(0);
 			
-			String[] al = q.split(" ");
-			int size = al.length;
+			String[] array = sentence.split(" ");
+			int size = array.length;
 			int count=0;
 			
 			for (int i=0;i<size;i++) {
 				
-				char first = al[i].charAt(0);
-				if (first==fi) {
+				char first = array[i].charAt(0);
+				if (first==letter) {
 					count++;
 				}
 				
 			}
 			
-		    System.out.println(count + " words of your sentence start with "+ fi);
+		    System.out.println(count + " words of your sentence start with "+ letter);
 		   // System.out.println(sc.nextLine()); 
 			System.out.println();
 			break;
